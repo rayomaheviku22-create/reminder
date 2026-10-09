@@ -1,0 +1,17 @@
+{
+  "name": "followup-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init:local": "wrangler d1 execute followup_tracker --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute followup_tracker --remote --file=./schema.sql",
+    "db:backup": "wrangler d1 export followup_tracker --remote --output=./backup.sql",
+    "build:single": "node scripts/build-single-file.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
