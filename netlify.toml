@@ -1,0 +1,16 @@
+# Netlify configuration. These settings override anything set in the Netlify UI.
+
+[build]
+  publish = "public"              # the dashboard page
+  functions = "netlify/functions" # the API (server code)
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "no-referrer"
+    X-Robots-Tag = "noindex, nofollow"
